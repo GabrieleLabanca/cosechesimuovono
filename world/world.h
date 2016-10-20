@@ -20,9 +20,9 @@ class world {
 
 
 	private:
-		vector<vector<place*>*> * grid = new vector<vector<place*>*>;
-
 		int D;
+		vector<vector<place*>*> * grid;
+
 
     int	n_iteration;
 

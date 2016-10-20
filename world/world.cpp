@@ -1,7 +1,8 @@
 #include "world.h"
 
 world::world(int dimension):
-	D(dimension)
+	D( dimension),
+	grid( new vector<vector<place*>*> )
 {
 	n_iteration = 0;
 	// fill grid with places

@@ -20,7 +20,7 @@ class place {
 
 	private:
 		bool walkable;	
-		vector<living*> * L_list = new vector<living*>;
+		vector<living*> * L_list;
 
 
 
