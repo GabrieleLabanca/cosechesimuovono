@@ -3,9 +3,24 @@
 
 using namespace std;
 
+class thing 
+{
+	public:
+		int value;
 
 
 
+
+	private:
+
+};
+
+class grid
+{
+	public: 
+		vector<vector<thing * > * > * vec = new vector<vector<thing * > * >;
+
+};
 
 
 
@@ -25,29 +40,28 @@ using namespace std;
 
 int main() 
 {
-	int num = 4;
-	int * pn = new int;
-	pn = &num;
+	vector<vector<thing*>*> * pv = new vector<vector<thing*>*>;
+	grid plane;
+	pv = plane.vec;
 
-	vector<vector<int*>*> * pv = new vector<vector<int*>*>;
 	pv->reserve(10);
 	cerr << "pv->capacity() : " << pv->capacity() << endl; 
 	for(int i=0; i<10; i++){
-		vector<int*> * t_line = new vector<int*>;
+		vector<thing*> * t_line = new vector<thing*>;
 		t_line->reserve(10);
 
 		for(int j=0; j<10; j++){
-			t_line->push_back( pn );
+			thing * tt = new thing;
+			tt->value = i+j;
+			t_line->push_back( tt );
 		}
 
 		pv->push_back( t_line );
 	}
 
-	int * temp = new int;
 	for(int i=0; i<10; i++){
-		for(int j=0; j<10; j++){
-			temp = pv->at(i)->at(j);
-			cout << *temp;
+			for(int j=0; j<10; j++){
+				cout << plane.vec->at(i)->at(j)->value +10 << " ";
 		}
 		cout << endl;
 	}

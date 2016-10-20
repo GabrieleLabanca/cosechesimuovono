@@ -5,9 +5,9 @@ world::world(int dimension):
 {
 	n_iteration = 0;
 	// fill grid with places
-	//grid->reserve(D);
+	grid->reserve(D);
 	for(int i=0; i<D; i++){
-		vector<place*>* t_line;
+		vector<place*>* t_line = new vector<place*>; 
 		t_line->reserve(D);
 		for(int j=0; j<D; j++){
 			place * t_place = new place('0');
@@ -17,6 +17,19 @@ world::world(int dimension):
 	}
 }
 
+world::~world()
+{
+	//delete vectors
+	for(int i=0; i<D; i++){
+		for(int j=0; j<D; j++){
+			delete grid->at(i)->at(j);
+		}
+		delete grid->at(i);
+	}
+	delete grid;
+
+
+}
 
 
 void world::display()

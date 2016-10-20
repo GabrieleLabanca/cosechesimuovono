@@ -6,7 +6,7 @@ using namespace std;
 int main ()
 {
 	//create world
-	world petri(10);
+	world petri(100);
 	petri.display();
 
 
