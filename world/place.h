@@ -13,13 +13,14 @@ class place {
 
 	public:
 		place(char type);
+		~place();
 
 
 
 
 	private:
 		bool walkable;	
-		vector<living*>* L_list;
+		vector<living*> * L_list = new vector<living*>;
 
 
 

@@ -14,6 +14,7 @@ class world {
 
 	public:
 		world(int dimension);
+		~world();
 		
     void display();
 
