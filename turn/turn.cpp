@@ -1,4 +1,5 @@
 #include "turn.h"
+#include "iostream"
 
 //N.B. if used in other files, write extern int n_iteration;
 int n_iteration = 0; // declared out of scope->static storage, external linkage
@@ -9,6 +10,8 @@ void turn::realize()
 
 	set<living*>::iterator it = L_set()->begin();
 	set<living*>::iterator ie = L_set()->end();
+
+	/*debug*/ (*it)->debug();
 
 	while(it != ie) (*it++)->think();
 
@@ -21,7 +24,7 @@ void turn::realize()
 	n_iteration++;
 }
 
-static set<living*>* turn::L_set()
+set<living*>* turn::L_set()
 {
 	static set<living*>* ptr = new set<living*>;
 	return ptr;

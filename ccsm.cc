@@ -10,15 +10,15 @@ int main ()
 	//create world
 	world petri(100);
 	petri.display();
-	turn day;
+	//turn day; not needed if realize() is static
 
-	living cell(20,20);
+	living cell(20,20, petri);
 	petri.display();
 
 
 	for(int i=0; i<10; i++)
 	{
-		day.realize();
+		turn::realize();
 		petri.display();
 	}
 

@@ -26,6 +26,7 @@ class place {
 		//coordinates are meant in the world grid
 		coordinate& get_coordinates(); //returns coordinates of this place 
 		place* get_place(coordinate&); //returns the place indexed by given coordinates
+		//XXX use world's function if not instantiating place
 
 		void move_in (living*);
 		void move_out(living*);

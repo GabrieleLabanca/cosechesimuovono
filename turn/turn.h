@@ -2,6 +2,7 @@
 #define H_TURN
 
 #include <set>
+#include "living.h"
 
 using namespace std;
 
@@ -9,18 +10,20 @@ class living;
 
 class turn 
 {
-	friend class living;
+	friend living;
 
 	public:
-		void realize();
 
-		void subscribe(living *);
-		void unsubscribe(living *);
+
+		static void realize();
+
+		static void subscribe(living *);
+		static void unsubscribe(living *);
 
 
 
 	private:
-		static set<living*>* L_set();
+	        static set<living*>* L_set();
 
 
 

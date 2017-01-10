@@ -5,11 +5,15 @@
 
 using namespace std;
 
-living::living(int x, int y):
-	direction.x(x),
-	direction.y(y),
-	position( get_place(direction) )
+living::living(int X, int Y, world atlas)/*:
+	direction.x(X),
+	direction.y(Y),
+	position( get_place(direction) )*/
 {
+	coordinate wherein;
+	wherein.x = X;
+	wherein.y = Y;
+	position = atlas.get_place(wherein);
 	position->move_in(this);
 	turn::subscribe(this);
 }
@@ -24,16 +28,16 @@ void living::think()
 	//chooses where to go
 	//  -select random number [0,8]
 	srand(15);
-	int direction = rand() % 9;
+	int whereto = rand() % 9;
 
 	//  -get coordinates of position
 	//    [position contains the pointer to the world it is in]
-	coordinate& here  = position->get_coordinates();
+	//coordinate& here  = position->get_coordinates();
 	coordinate& there = here;
 
 
 	//  -upgrade coordinates depending on selected number
-	switch(direction){
+	switch(whereto){
 		case 0: 
 			break;
 		case 1: 
@@ -67,8 +71,8 @@ void living::think()
 	}
 	
 	cerr << "coordinates of " << this << ":\n"
-		   << "before: " << there.x << " , " << there.y << endl;
-	     << "after: "  << here.x  << " , " << here.y  << endl;
+		   << "before: " << there.x << " , " << there.y << endl
+	           << "after: "  << here.x  << " , " << here.y  << endl;
 
 	direction = there;
 }
@@ -76,8 +80,8 @@ void living::think()
 
 void living::move()
 {
-	position->move_out(this);	//remove this from the list of old place
-	position = position->get_place(here) //upgrade place
+  position->move_out(this);	//remove this from the list of old place
+  position = position->get_place(here); //upgrade place
   position->move_in(this); //insert this in the list of new place
 
 }

@@ -4,16 +4,20 @@
 #include "../turn/turn.h"
 #include "../world/place.h"
 
+class turn;
+class world;
+
 class living
 {
 
 	friend class turn;
+	friend class world;
 
 	public:
-		living(int, int);
+		living(int, int, world);
 		~living();
 
-
+		void debug(){};
 
 
 
@@ -22,7 +26,8 @@ class living
 			coordinate& here;
 		  coordinate& there;
 		};*/
-		coordinate& direction;
+		coordinate direction;
+		coordinate here;
 		place * position;
 		void think();
 		void move();
